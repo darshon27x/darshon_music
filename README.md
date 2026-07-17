@@ -1,11 +1,11 @@
-# 🎸 Ukulele Self-Bot (Node.js)
+# 🎸 DARSHON Self-Bot (Node.js)
 
 This is a Discord Self-Bot that can be used to customize your own secondary/alternative account through various commands.
 
 ## 🚀 How to Run
 
 ### 1. Install Dependencies
-Navigate to the `ukulele-selfbot` folder in your terminal and install the dependencies:
+Navigate to the `DARSHON MUSIC-selfbot` folder in your terminal and install the dependencies:
 ```bash
 npm install
 ```
