@@ -1,4 +1,4 @@
-# 🎸 DARSHON Self-Bot (Node.js)
+# 🎸 DARSHON MUSIC Self-Bot (Node.js)
 
 This is a Discord Self-Bot that can be used to customize your own secondary/alternative account through various commands.
 
