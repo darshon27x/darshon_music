@@ -228,7 +228,7 @@ let currentResource = null;
 function getYoutubeInfo(videoUrl) {
     return new Promise((resolve, reject) => {
         const ytdlpPath = process.platform === 'android' ? 'yt-dlp' : path.join(__dirname, process.platform === 'win32' ? 'yt-dlp.exe' : 'yt-dlp');
-        const args = ['--dump-json', '-f', 'bestaudio', '--js-runtimes', 'node'];
+        const args = ['--dump-json', '-f', 'bestaudio', '--js-runtimes', 'node', '--remote-components', 'ejs:github'];
         
         if (config.youtube_cookies_from_browser) {
             args.push('--cookies-from-browser', config.youtube_cookies_from_browser);
@@ -563,6 +563,7 @@ function getYoutubeStream(videoUrl) {
         '-f', 'bestaudio',
         '-o', '-',
         '--js-runtimes', 'node',
+        '--remote-components', 'ejs:github',
     ];
     
     if (config.youtube_cookies_from_browser) {
