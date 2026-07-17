@@ -1,69 +1,69 @@
 # 🎸 Ukulele Self-Bot (Node.js)
 
-এটি একটি ডিসকর্ড সেলফ-বট (Self-Bot), যা আপনার নিজস্ব সেকেন্ড অ্যাকাউন্টকে বিভিন্ন কমান্ডের মাধ্যমে কাস্টমাইজড করতে ব্যবহার করা যাবে।
+This is a Discord Self-Bot that can be used to customize your own secondary/alternative account through various commands.
 
-## 🚀 কীভাবে চালাবেন (How to Run)
+## 🚀 How to Run
 
-### ১. ডিপেন্ডেন্সি ইনস্টল করা
-টার্মিনালে `selfbot` ফোল্ডারে গিয়ে ডিপেন্ডেন্সি ইনস্টল করুন:
+### 1. Install Dependencies
+Navigate to the `ukulele-selfbot` folder in your terminal and install the dependencies:
 ```bash
 npm install
 ```
 
-### ২. কনফিগারেশন করা
-`config.json` ফাইলটি ওপেন করুন:
+### 2. Configure Settings
+Open the `config.json` file:
 ```json
 {
   "token": "YOUR_DISCORD_USER_TOKEN",
   "prefix": ">"
 }
 ```
-এখানে `"YOUR_DISCORD_USER_TOKEN"` এর স্থানে আপনার সেকেন্ড অ্যাকাউন্টের টোকেন বসান। (টোকেন বের করার নিয়ম নিচে দেওয়া হয়েছে)।
+Replace `"YOUR_DISCORD_USER_TOKEN"` with your actual secondary account token (instructions on how to find the token are below).
 
-### ৩. বট স্টার্ট করা
-টার্মিনালে নিচের কমান্ডটি দিয়ে বট রান করুন:
+### 3. Start the Bot
+Run the following command in the terminal to start the bot:
 ```bash
 npm start
 ```
 
 ---
 
-## 🔑 ডিসকর্ড ইউজার টোকেন (User Token) কীভাবে পাবেন?
+## 🔑 How to get your Discord User Token?
 
 > [!WARNING]
-> আপনার টোকেনটি অত্যন্ত গোপনীয়। এটি কাউকে দেখাবেন না বা শেয়ার করবেন না।
+> Your Discord token is extremely confidential. Do not share it with anyone.
 
-1. আপনার পিসির ব্রাউজারে ডিসকর্ডে লগইন করুন।
-2. কিবোর্ড থেকে `F12` বা `Ctrl + Shift + I` চেপে **Developer Tools** ওপেন করুন।
-3. **Application** ট্যাবে যান (যদি না দেখতে পান, তবে `>>` আইকনে ক্লিক করে খুজে নিন)।
-4. বাম পাশের মেনুতে **Storage** -> **Local Storage** থেকে `https://discord.com` এ ক্লিক করুন।
-5. ডান পাশের ফিল্টারে `token` লিখে সার্চ করুন।
-6. `"token"` কি-এর পাশে যে ভ্যালুটি পাবেন (উদ্ধৃতি চিহ্ন ছাড়া), সেটিই হলো আপনার **ইউজার টোকেন**। সেটি কপি করে `config.json` এ বসিয়ে দিন।
-
----
-
-## ⚙️ কমান্ড লিস্ট (Commands)
-বটটি চালু করার পর আপনার নিজের যেকোনো সার্ভার বা চ্যাটে নিচের কমান্ডগুলো লিখলে বটটি কাজ করবে:
-* `>help` - সব কমান্ডের তালিকা দেখাবে।
-* `>ping` - ল্যাটেন্সি চেক করবে।
-* `>status <playing|streaming|listening|watching|clear> <text>` - আপনার অ্যাকাউন্টের স্ট্যাটাস পরিবর্তন করবে। (যেমন: `>status streaming Rocking coding!`)
-* `>embed <title> | <description>` - সুন্দর একটি ডিজাইন বক্সে মেসেজ দেখাবে। (যেমন: `>embed Hello | This is custom text`)
-* `>purge <count>` - আপনার পাঠানো শেষ Nটি মেসেজ ডিলিট করবে।
-* `>info` - বটের ইনফরমেশন দেখাবে।
-* `>play <song title|URL>` - আপনার ভয়েস চ্যানেলে যুক্ত হয়ে গান প্লে করবে (YouTube/Spotify লিংক অথবা গানের নাম দিয়ে সার্চ করা যাবে)।
-* `>skip` - বর্তমান গানটি বাদ দিয়ে কিউ-এর (Queue) পরবর্তী গানে চলে যাবে।
-* `>stop` - গান বাজানো বন্ধ করবে, কিউ খালি করবে এবং ভয়েস চ্যানেল থেকে বিদায় নিবে।
-* `>pause` - গান বাজানো সাময়িকভাবে বন্ধ (Pause) করবে।
-* `>resume` - বন্ধ করা গান পুনরায় প্লে (Resume) করবে।
-* `>queue` - কিউ-তে বর্তমানে থাকা গানগুলোর তালিকা দেখাবে।
+1. Log in to Discord in your PC's web browser.
+2. Open **Developer Tools** by pressing `F12` or `Ctrl + Shift + I` on your keyboard.
+3. Go to the **Application** tab (if you don't see it, click the `>>` icon to find it).
+4. In the left menu under **Storage**, expand **Local Storage** and click on `https://discord.com`.
+5. Search for `token` in the filter box on the right.
+6. Copy the value next to the `"token"` key (without the quotes) and paste it into `config.json`.
 
 ---
 
-## 🎵 Spotify ইন্টিগ্রেশন (Optional)
-Spotify লিংক সরাসরি প্লে করতে হলে `config.json` ফাইলে Spotify Client ID ও Client Secret যোগ করতে হবে:
-1. [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) এ গিয়ে আপনার স্পটিফাই অ্যাকাউন্ট দিয়ে লগইন করে একটি নতুন অ্যাপ তৈরি করুন।
-2. তৈরি করা অ্যাপটির Settings থেকে **Client ID** এবং **Client Secret** কপি করে নিন।
-3. আপনার `config.json` ফাইলটি এভাবে সেট করুন:
+## ⚙️ Command List (Commands)
+Once the bot is running, you can use these commands by typing them in any of your servers or direct messages (DMs):
+* `>help` - Shows the list of all commands.
+* `>ping` - Checks the latency.
+* `>status <playing|streaming|listening|watching|clear> <text>` - Changes your account's status. (e.g., `>status streaming Rocking coding!`)
+* `>embed <title> | <description>` - Displays a message inside a beautifully styled box. (e.g., `>embed Hello | This is custom text`)
+* `>purge <count>` - Deletes the last N messages sent by you.
+* `>info` - Shows information about the bot.
+* `>play <song title|URL>` - Joins your voice channel and plays music (supports YouTube/Spotify links or search queries).
+* `>skip` - Skips the current song and plays the next one in the queue.
+* `>stop` - Stops playing music, clears the queue, and leaves the voice channel.
+* `>pause` - Pauses the currently playing song.
+* `>resume` - Resumes the paused song.
+* `>queue` - Shows the list of songs currently in the queue.
+
+---
+
+## 🎵 Spotify Integration (Optional)
+To play Spotify links directly, you need to add your Spotify Client ID and Client Secret to the `config.json` file:
+1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) and log in with your Spotify account to create a new app.
+2. Under the Settings of your created app, copy the **Client ID** and **Client Secret**.
+3. Set your `config.json` file like this:
    ```json
    {
      "token": "YOUR_DISCORD_USER_TOKEN",
@@ -72,4 +72,4 @@ Spotify লিংক সরাসরি প্লে করতে হলে `con
      "spotify_client_secret": "YOUR_SPOTIFY_CLIENT_SECRET"
    }
    ```
-*(নোট: যদি Spotify ক্রেডেনশিয়াল সেট না করা হয়, তবুও আপনি গানের নাম সার্চ করে অথবা সরাসরি YouTube লিংক পেস্ট করে গান শুনতে পারবেন।)*
+*(Note: If Spotify credentials are not set, you can still search for songs by title or paste direct YouTube links to listen to music.)*
