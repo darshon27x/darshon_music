@@ -28,6 +28,48 @@ npm start
 
 ---
 
+## 📱 How to Run on Termux (Android)
+
+You can run this self-bot on your phone using **Termux** (Android terminal emulator). 
+
+### 1. Install Required System Packages
+Open Termux and run the following commands to update system repositories and install Node.js, FFmpeg, Python, and Git:
+```bash
+pkg update && pkg upgrade -y
+pkg install nodejs ffmpeg python python-pip git -y
+```
+
+### 2. Install yt-dlp
+Install the ARM-compatible `yt-dlp` using pip to stream YouTube audio:
+```bash
+pip install yt-dlp
+```
+
+### 3. Clone Repository & Setup
+Clone your repository and navigate into the folder:
+```bash
+git clone https://github.com/darshon27x/darshon_music.git
+cd darshon_music
+```
+*(If the repository is private, enter your GitHub Username and use a **Personal Access Token (PAT)** as your password).*
+
+### 4. Create and Edit Config
+Create your `config.json` from the template:
+```bash
+cp config.example.json config.json
+nano config.json
+```
+Fill in your `token`, `owner_ids`, etc., then press `Ctrl + O`, `Enter` to save, and `Ctrl + X` to exit.
+
+### 5. Install Dependencies & Start
+Install Node.js dependencies and start the self-bot:
+```bash
+npm install
+npm start
+```
+
+---
+
 ## 🔑 How to get your Discord User Token?
 
 > [!WARNING]
