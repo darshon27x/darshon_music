@@ -1,0 +1,11 @@
+{
+    "token": "YOUR_DISCORD_USER_TOKEN",
+    "prefix": "f",
+    "spotify_client_id": "YOUR_SPOTIFY_CLIENT_ID",
+    "spotify_client_secret": "YOUR_SPOTIFY_CLIENT_SECRET",
+    "owner_ids": [
+        "YOUR_DISCORD_USER_ID"
+    ],
+    "youtube_cookies_from_browser": "",
+    "youtube_cookie": "YOUR_YOUTUBE_COOKIE"
+}

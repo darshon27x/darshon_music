@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshon Music Player Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div class="container">
+        <!-- Sidebar or Header -->
+        <header class="dashboard-header">
+            <div class="logo">
+                <i class="fa-solid fa-music pulse-icon"></i>
+                <h1>Darshon <span>Music Player</span></h1>
+            </div>
+            <div id="bot-status" class="status-badge offline">
+                <span class="dot"></span> <span class="status-text">Disconnected</span>
+            </div>
+        </header>
+
+        <!-- Main Panel -->
+        <main class="dashboard-grid">
+            <!-- Left Side: Search and Controls -->
+            <section class="control-panel card">
+                <h2><i class="fa-solid fa-circle-play"></i> Player Control</h2>
+                
+                <!-- Connection Status Details -->
+                <div class="vc-details" id="vc-details-panel">
+                    <p class="vc-info-text"><i class="fa-solid fa-signal text-accent"></i> Not joined to any Voice Channel.</p>
+                </div>
+
+                <!-- Owner Selection Dropdown -->
+                <div class="owner-selector-group">
+                    <label for="owner-select"><i class="fa-solid fa-user-shield"></i> Target Owner VC:</label>
+                    <div class="select-wrapper">
+                        <select id="owner-select">
+                            <option value="auto">Auto (Find Any Owner)</option>
+                            <option value="custom">Custom Voice Channel ID...</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down select-chevron"></i>
+                    </div>
+                </div>
+
+                <!-- Custom VC Input (Initially Hidden) -->
+                <div id="custom-vc-group" class="owner-selector-group hidden">
+                    <label for="custom-vc-input"><i class="fa-solid fa-hashtag text-accent"></i> Custom Voice Channel ID:</label>
+                    <div class="select-wrapper">
+                        <div class="input-group">
+                            <i class="fa-solid fa-key" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-secondary); font-size: 1.1rem; z-index: 10;"></i>
+                            <input type="text" id="custom-vc-input" placeholder="Enter Voice Channel ID (e.g. 14929855...)" style="padding-left: 2.8rem;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search / Play Section -->
+                <div class="search-section">
+                    <div class="input-group">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="search-input" placeholder="Search song name or YouTube/Spotify URL...">
+                    </div>
+                    <button id="play-btn" class="btn btn-primary">
+                        <i class="fa-solid fa-play"></i> Play Song
+                    </button>
+                </div>
+
+                <!-- Playing Panel Controls -->
+                <div class="media-controls">
+                    <button id="pause-btn" class="btn btn-secondary" title="Pause">
+                        <i class="fa-solid fa-pause"></i> Pause
+                    </button>
+                    <button id="resume-btn" class="btn btn-secondary hidden" title="Resume">
+                        <i class="fa-solid fa-play"></i> Resume
+                    </button>
+                    <button id="skip-btn" class="btn btn-secondary" title="Skip">
+                        <i class="fa-solid fa-forward-step"></i> Skip
+                    </button>
+                    <button id="stop-btn" class="btn btn-danger" title="Stop & Leave">
+                        <i class="fa-solid fa-stop"></i> Stop / Leave
+                    </button>
+                </div>
+
+                <!-- Extra Controls (Volume, Loop, Shuffle) -->
+                <div class="extra-controls">
+                    <!-- Loop and Shuffle Row -->
+                    <div class="quick-actions">
+                        <button id="loop-btn" class="btn btn-secondary" title="Loop Mode (Off)">
+                            <i class="fa-solid fa-repeat"></i> <span>Loop: Off</span>
+                        </button>
+                        <button id="shuffle-btn" class="btn btn-secondary" title="Shuffle Queue">
+                            <i class="fa-solid fa-shuffle"></i> Shuffle
+                        </button>
+                    </div>
+
+                    <!-- Volume Slider -->
+                    <div class="volume-control-group">
+                        <label for="volume-slider"><i id="volume-icon" class="fa-solid fa-volume-high"></i> Volume: <span id="volume-val">100%</span></label>
+                        <div class="slider-container">
+                            <input type="range" id="volume-slider" min="0" max="150" value="100" class="volume-slider">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Now Playing & Queue -->
+            <section class="music-info card">
+                <!-- Now Playing Card -->
+                <div class="now-playing-box">
+                    <h3><i class="fa-solid fa-music"></i> Now Playing</h3>
+                    <div class="song-card" id="current-song-card">
+                        <div class="song-info-fallback">
+                            <i class="fa-solid fa-compact-disc spin-disc"></i>
+                            <div class="fallback-details">
+                                <h4 id="current-song-title">No song playing</h4>
+                                <p id="current-song-status">Ready to play your favorite tracks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Play Queue -->
+                <div class="queue-box">
+                    <h3><i class="fa-solid fa-list-ol"></i> Up Next</h3>
+                    <div class="queue-list-wrapper">
+                        <ul id="queue-list" class="queue-list">
+                            <li class="empty-queue-msg">The play queue is currently empty.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Frontend Script -->
+    <script src="app.js"></script>
+</body>
+</html>
